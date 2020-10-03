@@ -12,9 +12,12 @@ public class MyUtils {
         StringParser sp = new StringParser();
 
         String str = "Hello|World|How are|you all";
-
-        List<String> stringParts = sp.splitString(str, "\\|");
-
+        List<String> stringParts = null;
+        try {
+            stringParts = sp.splitString(str, "\\|");
+        } catch (InvalidStringInputException e) {
+            System.out.println("Invalid string input exception");
+        }
         for (String part : stringParts) {
             System.out.println(part);
         }
